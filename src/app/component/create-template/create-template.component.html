@@ -1,0 +1,36 @@
+    <div class="container">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                  <h3>Create New Template</h3>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                 <b> Template Name :  </b>  <input placeholder="Enter Template name" [(ngModel)]="name" />
+                </td>
+            </tr>
+                     
+            <tr>
+                <td>
+                  <b>Index Patterns :  </b> <input placeholder="Enter index Patterns" [(ngModel)]="index_patterns" />
+                </td>
+            </tr>
+           
+            <tr><td><b>Do Settings</b></td></tr>
+            <tr> <td>
+                <b>No of shards :  </b> <input placeholder="Number of shard " [(ngModel)]="number_of_shards" />
+              </td></tr>
+            <tr><td>Do Mappings</td>
+                    <button mat-button (click)="openDialog()" mat-flat-button color="primary">Add Mappings</button>
+            <tr>
+                <td>
+                    <button mat-raised-button type="submit" (click)="createTemplate()">Save</button>
+                </td>
+                <td>
+                    <button mat-raised-button type="submit" (click)="cancel()">Cancel</button>
+                </td>
+            </tr>
+
+                    
+  <div>

@@ -1,0 +1,50 @@
+<!-- 
+   <div class="row">
+        <div class="col-md-2">
+          <div class="d1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="template">All-Template</a></li>
+              <li><a href="#"></a></li>
+              <li><a href="create">Create New</a></li>
+          </ul>
+          </div>
+        </div>
+      
+        <div class="col-md-10">
+          <div class="d2">
+            <h2>Welcome In Template Managment</h2>
+              Here !! You can Create ,Update And See All Templates 
+            </div>
+            <div *ngIf="">
+            <app-elk></app-elk>
+              </div>
+          </div>
+      
+      </div>
+      
+     -->
+
+     <div class="row">
+      <div class="col-md-2">
+        <div class="d1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><button (click)="allTemplate()">All-Template</button></li>
+            <li><a href="#"></a></li>
+            <li><a href="create">Create New</a></li>
+        </ul>
+        </div>
+      </div>
+    
+      <div class="col-md-10">
+        <div class="d2" *ngIf="isDefault">
+          <h2>Welcome In Template Managment</h2>
+            Here !! You can Create ,Update And See All Templates 
+          </div>
+          <div *ngIf="isAllTemplate">
+          <app-elk></app-elk>
+            </div>
+        </div>
+    
+    </div>

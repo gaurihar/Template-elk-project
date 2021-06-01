@@ -1,0 +1,20 @@
+<mat-toolbar color="red">
+    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item ><a href=''>Home</a></button>
+
+      <button mat-menu-item ><a href='template-menu'>Template Managment</a></button>
+      <button mat-menu-item ><a href=''>Index Managment</a></button>
+
+    </mat-menu>
+    
+  <span>Kibana</span>
+
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon></button> 
+     <button mat-icon-button class="example-icon" aria-label="Example icon-button with user icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>

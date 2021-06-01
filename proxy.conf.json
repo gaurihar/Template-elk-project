@@ -1,0 +1,8 @@
+{
+    "/_template/*": {
+        "target": "http://localhost:9200/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+      }
+}

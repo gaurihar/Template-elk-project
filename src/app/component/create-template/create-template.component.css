@@ -1,0 +1,15 @@
+.container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 500px;
+    width:100%;
+ }
+ table,tr { 
+     margin: auto;
+     padding-left: 1px;
+ }
+ td {
+     margin-left: 10px;
+ }

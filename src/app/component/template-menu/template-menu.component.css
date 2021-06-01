@@ -1,0 +1,44 @@
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: rgb(6, 14, 92);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: rgb(25, 94, 4);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  div.d2
+  {
+    margin-top: 2%;
+    margin-right: 10%;
+    box-sizing: border-box;
+   
+    border-color: rgb(120, 10, 184);
+    border: 1px solid rgb(172, 24, 218) ;
+    border-style: groove;
+    padding:100px;
+    text-align: center;
+    border-width: 20px;
+    
+    
+
+   
+   
+  }
+  div.d1
+  {
+    margin-left: 10%;
+    margin-top: 10%;
+  }

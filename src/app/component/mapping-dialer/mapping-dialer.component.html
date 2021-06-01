@@ -1,0 +1,39 @@
+
+<form #addressForm="ngForm" class="container mt-3">
+ <button> <mat-icon>open_in_new</mat-icon>Back</button>
+  <div class="row justify-content-center">
+    <div class="col-6">
+        <button type="button" class="btn btn-primary mb-2" (click)="addMapping()">+</button>
+      <section class="container border mb-4 p-3" *ngFor="let maps of data; let i = index;">
+        <div class="row">
+          <div class="col-6">
+              <div class="form-group">
+                  <label>Attribute</label>
+                  <input type="text" class="form-control" [(ngModel)]="maps.name" name="maps_{{i}}" placeholder="Enter attribute name"/>
+                </div>
+          </div>
+          <div class="col-6">
+              <div class="form-group">
+                  <label>Types</label>
+                  <select class="form-control" [(ngModel)]="maps.type" name="maps_{{i}}" placeholder="Choose types">
+                    <option value="integer">integer</option>
+                    <option value="float">float</option>
+                    <option value="date">date</option>
+                    <option value="text">text</option>
+                    <option value="keyword">keyword</option>
+                  </select>
+                </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-right">
+          <input type="submit" class="btn btn-success" (click)="doAction()" value="Submit"/>
+          <input type="submit" class="btn btn-primary" (click)="closeDialog()" value="Cancle"/>
+
+      </div>
+      
+    </div>
+  </div>
+
+</form>
