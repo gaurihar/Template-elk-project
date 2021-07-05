@@ -1,8 +1,12 @@
 h5 {
-background-color: blueviolet;
-position:absolute;
+background-color: rgb(6, 19, 61);
+position:fixed;
 bottom: 0%;
 width: 100%;
 margin: 0;
 padding: 10px;
+text-decoration: solid;
+color: rgb(230, 220, 220);
+
 }
+

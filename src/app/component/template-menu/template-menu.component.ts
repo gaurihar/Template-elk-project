@@ -9,6 +9,7 @@ export class TemplateMenuComponent implements OnInit {
 
   isAllTemplate:boolean=false
   isDefault:boolean=true
+  isCreate:boolean=false
 
   constructor() { }
 
@@ -18,6 +19,14 @@ export class TemplateMenuComponent implements OnInit {
   allTemplate(){
     this.isAllTemplate=true
     this.isDefault=false
+    this.isCreate=false
+  }
+  create()
+  {
+    this.isAllTemplate=false
+    this.isDefault=false
+    this.isCreate=true
+
   }
 }
 

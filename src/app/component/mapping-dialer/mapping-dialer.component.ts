@@ -9,7 +9,7 @@ import {Attributes} from '../../model/template-model';
   styleUrls: ['./mapping-dialer.component.css']
 })
 export class MappingDialerComponent {
-  
+  list:any=[1,2]
   constructor(
     public dialogRef: MatDialogRef<MappingDialerComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: Array<Attributes>) {

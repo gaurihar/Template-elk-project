@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule} from '@angular/common'
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +19,8 @@ import { SidebarComponent } from './component/sidebar/sidebar.component'
 import {MatTableModule} from '@angular/material/table'
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatSelectModule} from '@angular/material/select';
+
 import { FormArrayName, FormsModule } from '@angular/forms'
 import { MatCardModule } from '@angular/material/card';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
@@ -48,7 +53,7 @@ import { EditTemplateComponent } from './component/edit-template/edit-template.c
     MappingDialerComponent,
     EditComponent,
     TemplateMenuComponent,
-    EditTemplateComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -67,6 +72,10 @@ import { EditTemplateComponent } from './component/edit-template/edit-template.c
     MatDialogModule,
     MatToolbarModule,
     MatMenuModule,
+    MatRadioModule,MatTabsModule,
+    MatSelectModule
+  
+
   ],
   providers: [
     MatToolbarModule, 
@@ -78,6 +87,7 @@ import { EditTemplateComponent } from './component/edit-template/edit-template.c
    MatIconModule,
    MatProgressSpinnerModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -29,22 +29,26 @@
       <div class="col-md-2">
         <div class="d1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><button (click)="allTemplate()">All-Template</button></li>
-            <li><a href="#"></a></li>
-            <li><a href="create">Create New</a></li>
+            
+            <li><button mat-button  (click)="allTemplate()">All-Template</button></li>
+            
+            <li><button mat-button (click)="create()"><mat-icon>create</mat-icon>Create</button></li>
         </ul>
         </div>
       </div>
     
       <div class="col-md-10">
-        <div class="d2" *ngIf="isDefault">
+         <div class="d2" *ngIf="isDefault">
           <h2>Welcome In Template Managment</h2>
             Here !! You can Create ,Update And See All Templates 
           </div>
+
           <div *ngIf="isAllTemplate">
           <app-elk></app-elk>
+          </div>
+         
+          <div *ngIf="isCreate">
+            <app-create-template></app-create-template>
             </div>
-        </div>
     
     </div>

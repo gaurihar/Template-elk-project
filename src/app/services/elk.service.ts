@@ -19,7 +19,6 @@ export class ElkService {
   public getTemplateData(name:string):Observable<any>
   {
     return this.http.get(`_template/${name}`);
-
   }
 
   public createTemplate(templatemodel:TName,name:string):Observable<any>

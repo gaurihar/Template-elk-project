@@ -1,5 +1,16 @@
-    <div class="container">
-        <table class="example-full-width" cellspacing="0">
+<div>
+    <div *ngIf="isConfirm" class="alert alert-danger alert-dismissible fade show" role="alert">
+      Template Created  !!!
+     <strong>
+      Successfully !!!
+      </strong>
+      <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+   <div class="container">
+        <table class="example-full-width" cellspacing="2">
             <tr>
               <td>
                   <h3>Create New Template</h3>
@@ -7,30 +18,42 @@
             </tr>
             <tr>
                 <td>
-                 <b> Template Name :  </b>  <input placeholder="Enter Template name" [(ngModel)]="name" />
+                Template Name : <input placeholder="Enter Template name" [(ngModel)]="name" />
                 </td>
             </tr>
                      
             <tr>
                 <td>
-                  <b>Index Patterns :  </b> <input placeholder="Enter index Patterns" [(ngModel)]="index_patterns" />
+                 Index Patterns :  &nbsp;&nbsp; <input placeholder="Enter index Patterns" [(ngModel)]="index_patterns" />
                 </td>
             </tr>
            
-            <tr><td><b>Do Settings</b></td></tr>
             <tr> <td>
-                <b>No of shards :  </b> <input placeholder="Number of shard " [(ngModel)]="number_of_shards" />
+                No of Shards :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input placeholder="Number of shard " [(ngModel)]="number_of_shards" />
               </td></tr>
-            <tr><td>Do Mappings</td>
-                    <button mat-button (click)="openDialog()" mat-flat-button color="primary">Add Mappings</button>
+              <tr> <td>
+                No of Replicas : &nbsp;&nbsp; <input placeholder="Number of replicas " [(ngModel)]="number_of_replicas" />
+              </td></tr>
+            <tr><td><b>Do Mappings</b></td></tr>
+            <tr>  <td> <button type="button" class="btn btn-primary "(click)="openDialog()">Add Mappings</button></td>
+            </tr>
             <tr>
                 <td>
-                    <button mat-raised-button type="submit" (click)="createTemplate()">Save</button>
+                  
+                <button type="button" class="btn btn-success"(click)="createTemplate()" mat-flat-button color="Green">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+
                 </td>
-                <td>
-                    <button mat-raised-button type="submit" (click)="cancel()">Cancel</button>
-                </td>
+                
+                
             </tr>
 
                     
-  <div>
+  <div> 
+    
+    
+
+
+    </div>
+
+  

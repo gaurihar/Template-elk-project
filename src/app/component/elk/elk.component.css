@@ -10,7 +10,7 @@ div.d1{
 }
 
 div.d2{
-  margin-left: 65%;
+  margin-left: 60%;
   position: fixed;
 
 }
@@ -23,6 +23,10 @@ div.d4
 {
 margin-top: 10px;
 margin-left: 75%;
+}
+div.top_space{
+  margin-top: 50px;
+  margin-right: 10%;
 }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ElkService } from '../../services/elk.service';
 import { MatDialog } from '@angular/material/dialog';
-import {TName, Attributes, Mapper, Property, Template, Mappings,Settings,Index} from '../../model/template-model';
+import {TName, Attributes, Mapper, Property, Mappings,Settings,Index} from '../../model/template-model';
 import { MappingDialerComponent } from '../mapping-dialer/mapping-dialer.component'
 
 
@@ -25,11 +25,13 @@ export class CreateTemplateComponent implements OnInit {
   
   name:string=""
   mapping:Array<Attributes>=[];
-  Confirmation: String = "";
+  Confirmation: String = " Template Created Succesfully";
+  isConfirm:boolean=false
   index_patterns:string="";
   number_of_shards:string="1"
   index=0
   property:Property={}
+  number_of_replicas:string=""
 
   constructor(private dialog:MatDialog, private elk:ElkService) {}
   
@@ -38,8 +40,8 @@ export class CreateTemplateComponent implements OnInit {
   
   openDialog() {
     const dialogRef = this.dialog.open(MappingDialerComponent, {
-      width: '1298px',
-      height:'981px',
+      width: '500px',
+      height:'500px',
       data:this.mapping
     });
     dialogRef.afterClosed().subscribe(result=> {
@@ -50,11 +52,15 @@ export class CreateTemplateComponent implements OnInit {
   }
   
   createTemplate(){
+    this.isConfirm=true
     let patterns=this.index_patterns.split(',')
-   
+    const index_optional= this.objWithTemplate.settings?.index 
+    
     if (patterns.length>0 && this.index>0){
-      
       this.objWithTemplate.index_patterns = patterns
+      if (index_optional) index_optional.number_of_shards = this.number_of_shards
+      if (index_optional) index_optional.number_of_replicas = this.number_of_replicas
+
       this.t_property = this.property
       this.t_mappings.properties = this.t_property
       
@@ -101,6 +107,11 @@ export class CreateTemplateComponent implements OnInit {
       }
     }
     return PropertyObj
+  }
+
+  closeAlert()
+  {
+   this.isConfirm=false
   }
 
 }

@@ -1,5 +1,5 @@
 .container{
-    align-items: center;
+    align-items:left;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,8 +8,10 @@
  }
  table,tr { 
      margin: auto;
-     padding-left: 1px;
+     padding-left: 10px;
+     
  }
  td {
-     margin-left: 10px;
+     margin-left: 1px;
  }
+

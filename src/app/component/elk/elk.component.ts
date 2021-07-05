@@ -1,7 +1,10 @@
-import { KeyValuePipe } from '@angular/common';
+import { KeyValue} from '@angular/common';
 import { Component, KeyValueDiffers, OnInit } from '@angular/core';
 import { ElkService} from '../../services/elk.service'
 import {Router, ROUTES} from '@angular/router'
+import {TName} from '../../model/template-model'
+import { keyframes } from '@angular/animations';
+
 
 
 
@@ -11,8 +14,8 @@ import {Router, ROUTES} from '@angular/router'
   styleUrls: ['./elk.component.css']
 })
 export class ElkComponent implements OnInit {
-  templates: any=[]
- 
+  objTemplate: TName={"index_patterns":[]}
+  templates:any=[]
   page: number=1
   totalRecords: any
   ovalue : any=[]
@@ -38,12 +41,18 @@ export class ElkComponent implements OnInit {
 
  ngOnInit(): void {
    this.getDataElk()
+   
  }
- //To get all index template data
+ //To get all index template datas
  getDataElk():any{
    this.elk.getDataElk().subscribe(data=>
     {
-      this.templates=data
+      this.templates=data 
+      for(var val of this.default_template)
+      {
+        console.log(val)
+      }
+      this.default_template.forEach(e=>delete this.templates[e])
       console.warn(this.templates)
       this.totalRecords=this.templates.length
     })

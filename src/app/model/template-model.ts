@@ -7,10 +7,6 @@ export interface TName{
    aliases?: Aliases;
   }
 
-export interface Template{
-  settings?:Settings
-  mappings:Mappings
-}
 
 export interface Settings {
   index: Index;
@@ -19,7 +15,6 @@ export interface Settings {
 export interface Index {
   lifecycle?: Lifecycle;
   number_of_shards: string;
-  auto_expand_replicas?: string;
   number_of_replicas?: string;
   format?: string;
   refresh_interval?: string;
