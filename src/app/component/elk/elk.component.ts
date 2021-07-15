@@ -14,14 +14,18 @@ import { keyframes } from '@angular/animations';
   styleUrls: ['./elk.component.css']
 })
 export class ElkComponent implements OnInit {
-  objTemplate: TName={"index_patterns":[]}
-  templates:any=[]
-  page: number=1
-  totalRecords: any
-  ovalue : any=[]
-  Object = Object;
-  ojson=Object
   
+  objTemplate: TName={"index_patterns":[]};
+  templates:any=[];
+  page: number=1;
+  totalRecords: any;
+  ovalue : any=[];
+  Object = Object;
+  ojson=Object;
+  templateName:any;
+  Confirmation: String = "User Deleted Successfully.";
+  isDel: Boolean = false;
+ 
   default_template=[".monitoring-es",
       ".ml-state",
   ".ml-notifications-000001",
@@ -65,13 +69,10 @@ export class ElkComponent implements OnInit {
   return false
  }
 
- templateName:any
- Confirmation: String = "User Deleted Successfully.";
- isDel: Boolean = false;
-
+ 
  deteleTemplate(p:any)
  {
-   if(confirm("Are you want to delete template :"+p))
+   if(confirm("Do you want to delete template :"+p))
    {
    this.elk.deleteTemplate(p).subscribe(res => {
     console.log(res);  
@@ -87,7 +88,7 @@ export class ElkComponent implements OnInit {
   
  editTemplate(p:any)
  {
-  if(confirm("Are you want to edit template :"+p))
+  if(confirm("Do you want to edit template :"+p))
   {
   this.route.navigate(['/edit',p])
   }

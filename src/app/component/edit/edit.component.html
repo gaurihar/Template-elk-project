@@ -4,22 +4,31 @@
 <section>
     <nav>
     <ul>
-    <li><button  button mat-stroked-button class="active" href="#about">Index Pattern</button></li>
-
-    <li><button button mat-stroked-button >Template Setting</button></li>
-
+    <li><button  button mat-stroked-button (click)="updateTemplateIndexPattern()">Index Pattern</button></li>
+    <li><button button mat-stroked-button (click)="updateTemplateSetting()">Template Setting</button></li>
     <li><button  button mat-stroked-button (click)="updateMappingProperties()" >Mapping-properties</button></li>
-    <li><button button mat-stroked-button  href="#about">Aliase</button></li>
+    <li><button button mat-stroked-button (click)="updateTemplateAlias()">Aliase</button></li>
         </ul>
         </nav>
 </section>
 
 <div *ngFor= "let item in templateinfo">
-{{item.key}}
+  
 </div>
-{{templateinfo}}
-
-<!-- <div tyle="height: 100%;
+<!-- 
+  Whenever this component get loaded all data
+  4 variables
+    1) Index Patterns -> Array data
+    2) Template Setting -> Setting data
+    3) Mapping Properties -> Mapping Data
+    4) Aliases -> Aliases data
+  
+  On click event of buttons
+  4 modal(Form) with respective to give data set
+  
+  
+  
+  <div tyle="height: 100%;
 width: 10%;
 position: fixed;
 z-index: 1;
