@@ -40,14 +40,19 @@ export class ElkComponent implements OnInit {
    this.getDataElk()
  }
  //To get all index template data
- getDataElk():any{
-   this.elk.getDataElk().subscribe(data=>
-    {
-      this.templates=data
-      console.warn(this.templates)
-      this.totalRecords=this.templates.length
-    })
-  }
+getDataElk():any{
+  this.elk.getDataElk().subscribe(data=>
+   {
+     this.templates=data 
+     for(var val of this.default_template)
+     {
+       console.log(val)
+     }
+     this.default_template.forEach(e=>delete this.templates[e])
+     console.warn(this.templates)
+     this.totalRecords=this.templates.length
+   })
+ }
 
  isSet(p:any):any
  {

@@ -25,7 +25,8 @@ export class CreateTemplateComponent implements OnInit {
   
   name:string=""
   mapping:Array<Attributes>=[];
-  Confirmation: String = "";
+  Confirmation: String = " Template Created Succesfully";
+  isConfirm:boolean=false
   index_patterns:string="";
   number_of_shards:string="1"
   index=0
@@ -50,6 +51,7 @@ export class CreateTemplateComponent implements OnInit {
   }
   
   createTemplate(){
+    this.isConfirm=true
     let patterns=this.index_patterns.split(',')
    
     if (patterns.length>0 && this.index>0){
@@ -102,6 +104,11 @@ export class CreateTemplateComponent implements OnInit {
     }
     return PropertyObj
   }
+  closeAlert()
+  {
+   this.isConfirm=false
+  }
+
 
 }
 
