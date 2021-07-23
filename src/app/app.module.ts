@@ -34,7 +34,8 @@ import { CreateTemplateComponent } from './component/create-template/create-temp
 import { MappingDialerComponent } from './component/mapping-dialer/mapping-dialer.component';
 import { EditComponent } from './component/edit/edit.component';
 import { TemplateMenuComponent } from './component/template-menu/template-menu.component';
-import { EditTemplateComponent } from './component/edit-template/edit-template.component'; 
+import { EditTemplateComponent } from './component/edit-template/edit-template.component';
+import { MappingPropertyComponent } from './component/mapping-property/mapping-property.component'; 
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { EditTemplateComponent } from './component/edit-template/edit-template.c
     MappingDialerComponent,
     EditComponent,
     TemplateMenuComponent,
-    EditTemplateComponent
+    EditTemplateComponent,
+    MappingPropertyComponent
   ],
   imports: [
     BrowserModule,
