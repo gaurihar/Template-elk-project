@@ -36,7 +36,7 @@ import { EditComponent } from './component/edit/edit.component';
 import { TemplateMenuComponent } from './component/template-menu/template-menu.component';
 import { EditTemplateComponent } from './component/edit-template/edit-template.component';
 import { MappingPropertiesComponent } from './component/mapping-properties/mapping-properties.component'; 
-
+import {  ReactiveFormsModule } from '@angular/forms';  
 
 @NgModule({
   declarations: [
@@ -68,7 +68,7 @@ import { MappingPropertiesComponent } from './component/mapping-properties/mappi
     MatCardModule,
     MatDialogModule,
     MatToolbarModule,
-    MatMenuModule,
+    MatMenuModule,ReactiveFormsModule
   ],
   providers: [
     MatToolbarModule, 

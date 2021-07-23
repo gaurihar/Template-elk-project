@@ -14,7 +14,7 @@ export class CreateTemplateComponent implements OnInit {
   
   //Without template
   objTemplate: TName={"index_patterns":[]}
-  
+  isProperty:boolean=false
   //With template
   t_index: Index={number_of_shards:"1"}
   t_settings:Settings={"index":this.t_index}
@@ -101,6 +101,16 @@ export class CreateTemplateComponent implements OnInit {
       }
     }
     return PropertyObj
+  }
+
+  newMap()
+  {
+  this.isProperty=true
+  }
+  newProperties(event:Event)
+  {
+    console.log("you are in carete Template")
+    console.log(event)
   }
 
 }

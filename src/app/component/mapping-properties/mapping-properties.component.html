@@ -1,1 +1,51 @@
-<p>mapping-properties works!</p>
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+    <div [hidden]="IsmodelShow" class="modal-content">   
+        <div class="modal-header">
+          <h5 class="modal-title">properties</h5>
+          <button type="button" class="close" data-dismiss="modal"(click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div> 
+    <div class="modal-body">
+    <form [formGroup]="attributeForm" (ngSubmit)="onSubmit()">  
+      
+      
+      <table class="table table-bordered" formArrayName="attribute">  
+        <tr>  
+          <th colspan="2">Add Multiple Quantity:</th>  
+          <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button></th>  
+        </tr>  
+        <tr *ngFor="let quantity of attribute().controls; let i=index" [formGroupName]="i">  
+            <td>  
+                Attribute Name :  
+                <input type="text" formControlName="aname" class="form-control">  
+            </td> 
+            <td>  
+              Type :  
+              <input type="text" formControlName="type" class="form-control">  
+          </td>  
+          <td>  
+              Format:  
+              <input type="text" formControlName="format" class="form-control">  
+          </td>  
+          <td>  
+              <button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>  
+          </td>  
+        </tr>  
+      </table>  
+       </form>  
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="close()">Close</button>
+        <button type="button" class="btn btn-success" [disabled]="attributeForm.invalid" (click)=onSubmit()>Submit</button>  
+    </div>
+    <br/>  
+    {{this.attributeForm.value | json}}  
+  
