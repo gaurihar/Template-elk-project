@@ -25,6 +25,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms'  
+
 //menu
 
 
@@ -68,7 +70,7 @@ import { MappingPropertyComponent } from './component/mapping-property/mapping-p
     MatCardModule,
     MatDialogModule,
     MatToolbarModule,
-    MatMenuModule,
+    MatMenuModule,FormGroup, FormControl, FormArray, FormBuilder, Validators
   ],
   providers: [
     MatToolbarModule, 

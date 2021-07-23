@@ -34,6 +34,9 @@
             <tr><td>Do Mappings</td>
                     <button mat-button (click)="openDialog()" mat-flat-button color="primary">Add Mappings</button>
             <tr>
+              <tr><td>Do Mappings</td>
+                <button mat-button (click)="newMap()" mat-flat-button color="primary">Add Mappings1</button>
+        <tr>
                 <td>
                     <button mat-raised-button type="submit" (click)="createTemplate()">Save</button>
                 </td>
@@ -41,6 +44,9 @@
                     <button mat-raised-button type="submit" (click)="cancel()">Cancel</button>
                 </td>
             </tr>
-
+            <div *ngIf="isProperty">
+              <app-mapping-property></app-mapping-property>
+              <div>
                     
   <div>
+   

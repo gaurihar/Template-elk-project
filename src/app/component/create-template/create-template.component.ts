@@ -14,7 +14,7 @@ export class CreateTemplateComponent implements OnInit {
   
   //Without template
   objTemplate: TName={"index_patterns":[]}
-  
+  isProperty:boolean=false
   //With template
   t_index: Index={number_of_shards:"1"}
   t_settings:Settings={"index":this.t_index}
@@ -107,6 +107,10 @@ export class CreateTemplateComponent implements OnInit {
   closeAlert()
   {
    this.isConfirm=false
+  }
+  newMap()
+  {
+ this.isProperty=true
   }
 
 
