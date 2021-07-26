@@ -34,7 +34,7 @@ import { CreateTemplateComponent } from './component/create-template/create-temp
 import { MappingDialerComponent } from './component/mapping-dialer/mapping-dialer.component';
 import { EditComponent } from './component/edit/edit.component';
 import { TemplateMenuComponent } from './component/template-menu/template-menu.component';
-import { EditTemplateComponent } from './component/edit-template/edit-template.component';
+//import { EditComponent } from './component/edit-template/edit-template.component';
 import { MappingPropertiesComponent } from './component/mapping-properties/mapping-properties.component'; 
 import {  ReactiveFormsModule } from '@angular/forms';  
 
@@ -49,7 +49,7 @@ import {  ReactiveFormsModule } from '@angular/forms';
     MappingDialerComponent,
     EditComponent,
     TemplateMenuComponent,
-    EditTemplateComponent,
+   
     MappingPropertiesComponent
   ],
   imports: [

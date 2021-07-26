@@ -1,3 +1,8 @@
+export interface ElkTemplate{
+  name:string;
+  tinfo:TName;
+}
+
 export interface TName{
   order?:number;
   version?: number

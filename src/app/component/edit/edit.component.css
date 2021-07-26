@@ -54,3 +54,9 @@ body {
       height: auto;
     }
   }
+
+  div.d1
+  {
+    margin-left: 10%;
+    margin-top: 10%;
+  }
