@@ -1,7 +1,7 @@
-export interface ElkTemplate{
-  name:string;
-  tinfo:TName;
-}
+// export interface ElkTemplate{
+//   name:string;
+//   tinfo:TName;
+// }
 
 export interface TName{
   order?:number;
@@ -46,6 +46,7 @@ export interface Aliases
 
 export interface Lifecycle {
   name: string;
+  rollover_alias:string
 }
 
 export interface Mappings{

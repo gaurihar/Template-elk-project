@@ -14,12 +14,53 @@
 </section>
 </div>
 <div class="col-md-10">
+  <div class="container">
   <div *ngIf="isIndexUpdate">
   Update_Index: <input type="text" placeholder="enter New Index" [(ngModel)]="l_index_patterns"><br>
-  <button (click)="onSubmitIndex()">Change</button>
-</div>
+  <button (click)="onSubmitIndex()">Change</button></div></div>
+  <div *ngIf="isPropertyMapping">
+    <div class="container">
+  <app-mapping-properties></app-mapping-properties></div>
+  </div>
+  <div *ngIf="isSetting">
+    <div class="container">
+      <table class="example-full-width" cellspacing="0">
+          <tr><td><b><h3>Edit Template Settings</h3></b></td></tr>
+          <tr><td>
+              <b>No of shards * : <br> </b> <input placeholder="Number of shard " [(ngModel)]="number_of_shards" />
+          </td></tr>
+          <tr><td>
+            <b> lifecycle Name : <br> </b> <input placeholder="Number of shard " [(ngModel)]="name" />
+        </td></tr>
+        
+      <tr><td>
+        <b>number_of_replicas :  <br></b> <input placeholder="number_of_replicas" [(ngModel)]="number_of_replicas" />
+    </td></tr><tr>ggg</tr>
+    <tr><td>
+          <b>auto_expand_replicas: <br> </b> <input placeholder="auto_expand_replicas " [(ngModel)]="auto_expand_replicas" />
+      </td></tr>
+    <tr><td>
+      <b>refresh_interval : <br> </b> <input placeholder="refresh_interval" [(ngModel)]="refresh_interval" />
+  </td></tr>
+  <tr><td>
+    <b>format : <br> </b> <input placeholder="format" [(ngModel)]="format" />
+</td></tr>
 
-</div>
+<tr><td>
+  <b>priority :<br>  </b> <input placeholder="priority " [(ngModel)]="priority" />
+</td></tr>
+<tr><td>
+  <b>hidden?:<br>  </b> <input placeholder="True /false " [(ngModel)]="hidden" />
+</td></tr>
+<tr>
+<td><button mat-raised-button type="submit" (click)="onSubmitSetting()">Update</button></td>
+</tr>
+</table>
+        
+   
+  </div>
+
+
 </div>
 
 
