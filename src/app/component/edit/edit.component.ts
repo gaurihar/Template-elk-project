@@ -20,11 +20,14 @@ export class EditComponent implements OnInit {
   l_index_patterns:string=""
   l_TemplateName:string=""
   l_Setting:any
+  //mapping
+  
 
   //Original Index (global Values)
   g_Setting:any
   g_Mapping:any
   g_Aliases:any
+  g_Property:Property={}
   //Setting Parameters
   lifecycle?: Lifecycle
   name:string=""
@@ -70,6 +73,9 @@ export class EditComponent implements OnInit {
       this.parsedJson = JSON.parse(this.stringifiedData) 
       this.g_Setting=this.parsedJson[this.templetename]["settings"]
       this.g_Mapping=this.parsedJson[this.templetename]["mappings"]
+      this.g_Property=this.parsedJson[this.templetename]["mappings"]["properties"]
+      console.log(this.g_Property)
+
       this.g_Aliases=this.parsedJson[this.templetename]["aliases"]
       this.index_patterns=this.parsedJson[this.templetename]["index_patterns"]
       //Setting
@@ -82,7 +88,7 @@ export class EditComponent implements OnInit {
       this.refresh_interval=this.parsedJson[this.templetename]["settings"]["index"].refresh_interval
       this.lifecycle=this.parsedJson[this.templetename]["settings"]["index"]["lifecycle"]
      // this.name=this.parsedJson[this.templetename]["settings"]["index"]["lifecycle"].name
-      this.rollover_alias=this.parsedJson[this.templetename]["settings"]["index"]["lifecycle"].rollover_alias
+     // this.rollover_alias=this.parsedJson[this.templetename]["settings"]["index"]["lifecycle"].rollover_alias
     })
    }
   

@@ -20,7 +20,7 @@
   <button (click)="onSubmitIndex()">Change</button></div></div>
   <div *ngIf="isPropertyMapping">
     <div class="container">
-  <app-mapping-properties (templateName)="templetename"></app-mapping-properties></div>
+  <app-mapping-properties [templateName]="templetename" [mapProperty]="g_Property"></app-mapping-properties></div>
   </div>
   <div *ngIf="isSetting">
     <div class="container">
