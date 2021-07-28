@@ -25,7 +25,7 @@ export class MappingPropertiesComponent implements OnInit {
      
   newQuantity(): FormGroup {  
     return this.fb.group({  
-      aname:'',
+      name:'',
       type: '' ,
       format: '',  
     })  
@@ -50,5 +50,17 @@ export class MappingPropertiesComponent implements OnInit {
   {
     this.IsmodelShow=true
   }
+  // getQuantity(property:Property,templatename)
+  // {
+  //   for ( prop in property)
+  //   {
+  //     this.attribute().push(this.fb.group({  
+  //       aname:prop.name,
+  //       type: 'prop.type' ,
+  //       format: 'prop.format',  
+  //     })  )
+  //   }
+   // console.log(property)
+  //}
 
 }

@@ -25,11 +25,18 @@
         <tr *ngFor="let quantity of attribute().controls; let i=index" [formGroupName]="i">  
             <td>  
                 Attribute Name :  
-                <input type="text" formControlName="aname" class="form-control">  
+                <input type="text" formControlName="name" class="form-control">  
             </td> 
             <td>  
               Type :  
-              <input type="text" formControlName="type" class="form-control">  
+              <!-- <input type="text" formControlName="type" class="form-control">  -->
+              <select class="form-control" formControlName="type"  placeholder="Choose types">
+                <option value="integer">integer</option>
+                <option value="float">float</option>
+                <option value="date">date</option>
+                <option value="text">text</option>
+                <option value="keyword">keyword</option>
+              </select>
           </td>  
           <td>  
               Format:  

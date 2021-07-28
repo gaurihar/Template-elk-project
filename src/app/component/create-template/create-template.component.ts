@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ElkService } from '../../services/elk.service';
 import { MatDialog } from '@angular/material/dialog';
 import {TName, Attributes, Mapper, Property, Template, Mappings,Settings,Index} from '../../model/template-model';
-import { MappingDialerComponent } from '../mapping-dialer/mapping-dialer.component'
+//import { MappingDialerComponent } from '../mapping-dialer/mapping-dialer.component'
 
 
 @Component({
@@ -30,24 +30,30 @@ export class CreateTemplateComponent implements OnInit {
   number_of_shards:string="1"
   index=0
   property:Property={}
-
+  p:any
+  stringifiedData :any
+  parsedJson:any
+  map_attibutes:any
   constructor(private dialog:MatDialog, private elk:ElkService) {}
   
   ngOnInit(): void {
   }
   
-  openDialog() {
-    const dialogRef = this.dialog.open(MappingDialerComponent, {
-      width: '1298px',
-      height:'981px',
-      data:this.mapping
-    });
-    dialogRef.afterClosed().subscribe(result=> {
-      //error can be handled here
-      this.mapping=result.data
-      this.property = this.getMap()
-    });
-  }
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(MappingDialerComponent, {
+  //     width: '1298px',
+  //     height:'981px',
+  //     data:this.mapping
+      
+  //   });
+  //   console.log(this.mapping)
+  //   dialogRef.afterClosed().subscribe(result=> {
+  //     //error can be handled here
+  //     this.mapping=result.data
+  //     this.property = this.getMap()
+  //   });
+  //   console.log(this.property)
+  // }
   
   createTemplate(){
     let patterns=this.index_patterns.split(',')
@@ -111,9 +117,25 @@ export class CreateTemplateComponent implements OnInit {
   {
     console.log("you are in carete Template")
     console.log(event)
+    this.stringifiedData = JSON.stringify(event)
+    this.parsedJson = JSON.parse(this.stringifiedData) 
+    //console.log(this.parsedJson["attribute"])
+    this.map_attibutes=this.parsedJson["attribute"]
+    console.log(this.map_attibutes)
+    this.mapping=this.map_attibutes
+    this.property=this.getMap()
+   
+    
   }
 
 }
 
     
 
+//[{…}]0: {name: "a1", type: "integer", format: ""}length: 1__proto__: Array(0)
+
+// attribute: Array(1)
+// 0: {aname: "a1", type: "integer", format: ""}
+// length: 1
+// __proto__: Array(0)
+// __proto__: Object
