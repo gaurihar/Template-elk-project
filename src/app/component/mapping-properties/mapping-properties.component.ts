@@ -73,9 +73,14 @@ export class MappingPropertiesComponent implements OnInit {
    //this.parsedJson = JSON.parse(this.stringifiedData) 
   // console.log("parsedjson",this.parsedJson)
    for(let type1 in this.mapProperty){
-   console.log(type1)
-   console.log(this.mapProperty[type1]["type"])
-   console.log(this.mapProperty[type1]["format"])
+  //  console.log(type1)
+  //  console.log(this.mapProperty[type1]["type"])
+  //  console.log(this.mapProperty[type1]["format"])
+   this.attribute().push(this.fb.group({
+     name:type1,
+     type:this.mapProperty[type1]["type"],
+     format:this.mapProperty[type1]["format"]
+    }))
    
     //console.log(this.parsedJson[type1])
     }

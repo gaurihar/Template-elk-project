@@ -13,6 +13,9 @@
             <span aria-hidden="true">&times;</span>
           </button>
     </div> 
+    <div>
+      
+    </div>
     <div class="modal-body">
     <form [formGroup]="attributeForm" (ngSubmit)="onSubmit()">  
       
@@ -30,7 +33,7 @@
             <td>  
               Type :  
               <!-- <input type="text" formControlName="type" class="form-control">  -->
-              <select class="form-control" formControlName="type"  placeholder="Choose types">
+              <select class="form-control" formControlName="type" placeholder="Choose types">
                 <option value="integer">integer</option>
                 <option value="float">float</option>
                 <option value="date">date</option>
