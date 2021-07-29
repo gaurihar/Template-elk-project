@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ElkService } from '../../services/elk.service';
 import { MatDialog } from '@angular/material/dialog';
 import {TName, Attributes, Mapper, Property, Template, Mappings,Settings,Index} from '../../model/template-model';
@@ -11,7 +11,7 @@ import {TName, Attributes, Mapper, Property, Template, Mappings,Settings,Index} 
   styleUrls: ['./create-template.component.css']
 })
 export class CreateTemplateComponent implements OnInit {
-  
+ 
   //Without template
   objTemplate: TName={"index_patterns":[]}
   isProperty:boolean=false
@@ -26,6 +26,7 @@ export class CreateTemplateComponent implements OnInit {
   name:string=""
   mapping:Array<Attributes>=[];
   Confirmation: String = "";
+  ifSuccess:boolean=false
   index_patterns:string="";
   number_of_shards:string="1"
   index=0
@@ -64,14 +65,15 @@ export class CreateTemplateComponent implements OnInit {
       this.t_property = this.property
       this.t_mappings.properties = this.t_property
       
-      this.elk.createTemplate(this.objWithTemplate, this.name).subscribe(res => {})
+      this.elk.createTemplate(this.objWithTemplate, this.name).subscribe(res => {this.ifSuccess= true})
     }
     else if(patterns.length>0){
       this.objTemplate.index_patterns = patterns
-      this.elk.createTemplate(this.objTemplate, this.name).subscribe(res => {})
+      this.elk.createTemplate(this.objTemplate, this.name).subscribe(res => {this.ifSuccess= true})
     }
     this.index_patterns="";
     this.name="";
+    
   }
 
 
@@ -127,6 +129,13 @@ export class CreateTemplateComponent implements OnInit {
    
     
   }
+reset()
+{}
+closeAlert()
+  {
+   this.ifSuccess=false
+  }
+
 
 }
 
