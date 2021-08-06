@@ -126,8 +126,6 @@ export class CreateTemplateComponent implements OnInit {
     console.log(this.map_attibutes)
     this.mapping=this.map_attibutes
     this.property=this.getMap()
-   
-    
   }
 reset()
 {}

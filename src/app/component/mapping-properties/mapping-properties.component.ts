@@ -68,6 +68,7 @@ export class MappingPropertiesComponent implements OnInit {
   }
    getQuantity()
   {
+    
     console.log("maps",this.mapProperty)
    //this.stringifiedData = JSON.stringify(this.mapProperty)
    //this.parsedJson = JSON.parse(this.stringifiedData) 

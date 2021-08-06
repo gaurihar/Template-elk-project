@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router'
 import {ElkService} from '../../services/elk.service'
-import { Property, Settings,Index,TName,Mappings,Lifecycle} from '../../model/template-model'
+import { Property, Settings,Index,TName,Mappings,Lifecycle,Attributes,Mapper} from '../../model/template-model'
 import{MappingPropertiesComponent} from '../mapping-properties/mapping-properties.component'
 
 @Component({
@@ -39,6 +39,14 @@ export class EditComponent implements OnInit {
   refresh_interval?: string;
   priority?: string;
   hidden?:boolean
+
+  //mapping properties
+  stringifiedData_property:any
+  parsedJson_property:any
+  map_attibutes:any
+  mapping:Array<Attributes>=[];
+  property:Property={}
+
  
 
 
@@ -74,7 +82,7 @@ export class EditComponent implements OnInit {
       this.g_Setting=this.parsedJson[this.templetename]["settings"]
       this.g_Mapping=this.parsedJson[this.templetename]["mappings"]
       this.g_Property=this.parsedJson[this.templetename]["mappings"]["properties"]
-      console.log(this.g_Property)
+      console.log( "property",this.g_Property)
 
       this.g_Aliases=this.parsedJson[this.templetename]["aliases"]
       this.index_patterns=this.parsedJson[this.templetename]["index_patterns"]
@@ -191,9 +199,9 @@ export class EditComponent implements OnInit {
     this.isIndexUpdate=false
     this.isSetting=false
 
-    var property:Property
-    property = this.parsedJson[this.templetename]["mappings"]["properties"]
     
+
+
     //adding two new property map
     // property["naya"] = {"type": "float"}
     // property["datefield"] = {"type": "date", "format": "%d-%m-%Y"}
@@ -201,10 +209,60 @@ export class EditComponent implements OnInit {
     // console.log(this.parsedJson[this.templetename]["mappings"]["properties"])
     // console.log(property)
     // console.log(this.parsedJson)
+
   }
-  onSubmitProperty()
+
+  getMap(){
+    let PropertyObj: Property={};
+    this.index=0
+    for(let i=0;i<this.mapping.length;i++){
+      var key = this.mapping[i].name
+      
+      if (this.mapping[i].format == ""  || this.mapping[i].format ==null && key!= ""){  
+        let item: Mapper={"type":""};
+        item["type"] = this.mapping[i].type
+        PropertyObj[key] = item
+        this.index+=1
+      }
+      
+      else if (key!= ""){
+        let item:Mapper = {"type":"", "format":""}
+        item["type"] = this.mapping[i].type
+        item["format"] = this.mapping[i].format+""
+        PropertyObj[key] = item
+        this.index+=1
+      }
+    }
+    return PropertyObj
+  }
+  onSubmitProperty(event:Event)
   {
     console.log("You are in mapping property")
+    console.log(event)
+    var map1:Mappings
+    //property = this.parsedJson[this.templetename]["mappings"]["properties"]
+    this.updatedTemplate.index_patterns = this.parsedJson[this.templetename]["index_patterns"]
+    this.updatedTemplate.aliases=this.g_Aliases
+    this.updatedTemplate.settings=this.g_Setting
+    map1=this.parsedJson[this.templetename]["mappings"]
+
+    this.stringifiedData_property = JSON.stringify(event)
+    console.log(this.stringifiedData_property)
+
+    this.parsedJson_property = JSON.parse(this.stringifiedData_property) 
+    console.log(this.parsedJson_property)
+    this.map_attibutes=this.parsedJson_property["attribute"]
+  //   console.log(this.map_attibutes)
+    this.mapping=this.map_attibutes
+    this.property=this.getMap()
+  //  // this.updatedTemplate.mappings?.properties=this.g_Property
+    map1.properties=this.property
+    this.updatedTemplate.mappings=map1
+  //   console.log("****",map1)
+    console.log("gpropery",this.property)
+    this.elk.createTemplate(this.updatedTemplate, this.templetename).subscribe(res => {})
+      
+
   }
   
    
