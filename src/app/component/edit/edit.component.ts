@@ -113,25 +113,12 @@ export class EditComponent implements OnInit {
     //console.log(this.parsedJson[this.templetename]["index_patterns"])
    this.l_index_patterns = this.parsedJson[this.templetename]["index_patterns"]
     
-    //adding and removing index pattern locally
-    // localIndexData.push("gauri*")
-    // localIndexData.forEach((element,index)=>{
-    //   if(element=="k*") delete localIndexData[index];
-    // });
-
-    // this.parsedJson[this.templetename]["index_patterns"] = localIndexData
-    // console.log(this.parsedJson)
+   
    
   }
   onSubmitIndex()
   {
-    // console.log("you are in index function")
-    // console.log(this.l_index_patterns)
-    //console.log(this.parsedJson)
-    // console.log(this.g_Setting)
-    // console.log(this.g_Mapping)
-    // console.log(this.g_Aliases)
-    //console.log(this.l_index_patterns)
+    
     let patterns=this.l_index_patterns.split(',')
     this.updatedTemplate.index_patterns = patterns
     this.updatedTemplate.mappings = this.g_Mapping
@@ -199,17 +186,6 @@ export class EditComponent implements OnInit {
     this.isIndexUpdate=false
     this.isSetting=false
 
-    
-
-
-    //adding two new property map
-    // property["naya"] = {"type": "float"}
-    // property["datefield"] = {"type": "date", "format": "%d-%m-%Y"}
-    // this.parsedJson[this.templetename]["mappings"]["properties"] = property
-    // console.log(this.parsedJson[this.templetename]["mappings"]["properties"])
-    // console.log(property)
-    // console.log(this.parsedJson)
-
   }
 
   getMap(){
@@ -237,29 +213,20 @@ export class EditComponent implements OnInit {
   }
   onSubmitProperty(event:Event)
   {
-    console.log("You are in mapping property")
-    console.log(event)
+  
     var map1:Mappings
-    //property = this.parsedJson[this.templetename]["mappings"]["properties"]
     this.updatedTemplate.index_patterns = this.parsedJson[this.templetename]["index_patterns"]
     this.updatedTemplate.aliases=this.g_Aliases
     this.updatedTemplate.settings=this.g_Setting
     map1=this.parsedJson[this.templetename]["mappings"]
-
     this.stringifiedData_property = JSON.stringify(event)
-    console.log(this.stringifiedData_property)
-
     this.parsedJson_property = JSON.parse(this.stringifiedData_property) 
     console.log(this.parsedJson_property)
     this.map_attibutes=this.parsedJson_property["attribute"]
-  //   console.log(this.map_attibutes)
     this.mapping=this.map_attibutes
     this.property=this.getMap()
-  //  // this.updatedTemplate.mappings?.properties=this.g_Property
     map1.properties=this.property
     this.updatedTemplate.mappings=map1
-  //   console.log("****",map1)
-    console.log("gpropery",this.property)
     this.elk.createTemplate(this.updatedTemplate, this.templetename).subscribe(res => {})
       
 

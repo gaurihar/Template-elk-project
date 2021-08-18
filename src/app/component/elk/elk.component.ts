@@ -12,6 +12,8 @@ import {Router, ROUTES} from '@angular/router'
 })
 export class ElkComponent implements OnInit {
   templates: any=[]
+  stringifiedData:any
+  parsedJson:any
  
   page: number=1
   totalRecords: any
@@ -44,12 +46,16 @@ export class ElkComponent implements OnInit {
   this.elk.getDataElk().subscribe(data=>
     {
       this.templates=data 
-      for(var val of this.default_template)
-      {
-        console.log(val)
-      }
+      // for(var val of this.default_template)
+      // {
+      //   console.log(val)
+      // }
       this.default_template.forEach(e=>delete this.templates[e])
       console.warn(this.templates)
+      this.stringifiedData = JSON.stringify(data)
+      this.parsedJson = JSON.parse(this.stringifiedData) 
+      //this.index_patterns=this.parsedJson[this.templetename]["index_patterns"]
+
       this.totalRecords=this.templates.length
     })
   }

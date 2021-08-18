@@ -24,19 +24,19 @@
   <table id="customers">
       <tr>        
         <th>Template Name </th>
-        <th>Index Patterns</th>
+        <!-- <th>Index Patterns</th> -->
         <th>Edit </th>
         <th>Delete</th>
       <tr>
       
       <tr  *ngFor = "let item of templates |keyvalue |paginate: {itemsPerPage:10 ,currentPage: page , totalItems: totalRecords }"> 
         <td>{{item.key}}</td> 
-        <td >{{templates.gauri.index_patterns}}</td>
-        <!-- <td>{{item.value.index_patterns}}</td> -->
-        <!--<td *ngIf="item.index_template.priority">{{item.index_template.priority}}</td>
-        <td *ngIf="!item.index_template.priority">--</td> -->
-        <td>
-          <button (click)="editTemplate(item.key)"><mat-icon>create</mat-icon></button>
+        
+        
+       <!-- <td> {{templates["item.key"]["index_patterns"]}}</td> -->
+        
+        <td align="center">
+          <button  (click)="editTemplate(item.key)"><mat-icon>create</mat-icon></button>
         </td>
         <td>
           <button (click)="deteleTemplate(item.key)" class="btn btn-danger btn-sm">Delete</button>
@@ -51,6 +51,7 @@
     
 </div>
 </div>
+
 
 <!--
 <body>
