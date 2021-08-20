@@ -1,15 +1,46 @@
 .container{
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 500px;
-    width:100%;
+    justify-content:start;
+    height: 90%;
+    width:80%;
+    margin-top: 20px;
  }
  table,tr { 
      margin: auto;
      padding-left: 1px;
+     padding: 10px;
+     margin: 10px;
+     font-size: medium;
+     overflow:auto;
+    
  }
  td {
      margin-left: 10px;
+     font-size: larger;
+     text-align: start;
  }
+ th {
+     size: 50px;
+     font-size: smaller ;
+     color: rgba(0, 67, 134, 0.507);
+ }
+ 
+ .createClass {
+     padding-left: 10px ;
+     margin-right: 10px;
+     margin-left: 10px;
+     margin-top: 10px;
+    
+     height: 100%;
+ }
+ input{
+background-color: rgb(230, 222, 238);
+tab-size: 100px;
+text-align: start;
+size: 100px;
+
+ }
+
+

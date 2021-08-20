@@ -3,6 +3,7 @@ import { ElkService } from '../../services/elk.service';
 import { MatDialog } from '@angular/material/dialog';
 import {TName, Attributes, Mapper, Property, Template, Mappings,Settings,Index} from '../../model/template-model';
 //import { MappingDialerComponent } from '../mapping-dialer/mapping-dialer.component'
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -134,6 +135,10 @@ closeAlert()
    this.ifSuccess=false
   }
 
+  onSubmit(f: NgForm) {
+    console.log(f.value);  // { first: '', last: '' }
+    console.log(f.valid);  // false
+  }
 
 }
 

@@ -16,15 +16,16 @@
     <div>
       
     </div>
-    <div class="modal-body">
+    <div class="modal-body" >
     <form [formGroup]="attributeForm" (ngSubmit)="onSubmit()">  
       
       
       <table class="table table-bordered" formArrayName="attribute">  
         <tr>  
-          <th colspan="2">Add Multiple Quantity:</th>  
-          <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button></th>  
+          <th colspan="2" width="100px">Add Multiple Quantity:  
+          <button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button></th>  
         </tr>  
+        <div style="width:700px; height:700px; overflow:auto;">
         <tr *ngFor="let quantity of attribute().controls; let i=index" [formGroupName]="i">  
             <td>  
                 Attribute Name :  
@@ -49,6 +50,7 @@
               <button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>  
           </td>  
         </tr>  
+        </div>
       </table>  
        </form>  
     </div>

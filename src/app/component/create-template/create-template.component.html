@@ -1,3 +1,11 @@
+<!-- <head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head> -->
 <div>
   <div *ngIf="ifSuccess" class="alert alert-danger alert-dismissible fade show" role="alert">
     Template Created  !!!
@@ -9,55 +17,48 @@
       <span aria-hidden="true">&times;</span>
     </button></a>
   </div>
-<!-- 
-  <div ngIf="ifSuccess" #alert class="alert alert-warning alert-dismissible fade show" role="alert">
-    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  </div> -->
- 
+  
+  <div class="row">
+    
+    <div class="col-md-5">
+      <div style="width:600px; height:700px; overflow:auto" >
+        <div class="container">
+          <table class="example-full-width" cellspacing="0" cellpadding="0" border="0" >
+              <tr><h1>Create Table</h1><tr>
+              <tr><b> Template Name :  </b></tr>
 
-    <div class="container">
-        <table class="example-full-width" cellspacing="0">
-            <tr>
-              <td>
-                  <h3>Create New Template</h3>
-              </td>
-            </tr>
-            <tr>
-                <td>
-                 <b> Template Name :  </b>  <input placeholder="Enter Template name" [(ngModel)]="name" />
-                </td>
-            </tr>
-                     
-            <tr>
-                <td>
-                  <b>Index Patterns :  </b> <input placeholder="Enter index Patterns" [(ngModel)]="index_patterns" />
-                </td>
-            </tr>
-           
-            <tr><td><b>Do Settings</b></td></tr>
-            <tr> <td>
-                <b>No of shards :  </b> <input placeholder="Number of shard " [(ngModel)]="number_of_shards" />
-              </td></tr>
-            <!-- <tr><td>Do Mappings</td>
-                    <button mat-button (click)="openDialog()" mat-flat-button color="primary">Add Mappings</button>
-            <tr> -->
-              <tr><td>Do Mappings</td>
-                <button mat-button (click)="newMap()" mat-flat-button color="primary">Add Properties</button>
-        <tr>
-                <td>
-                    <button mat-raised-button type="submit" (click)="createTemplate()">Save</button>
-                </td>
-                <td>
-                    <button mat-raised-button type="submit" (click)="cancel()">Cancel</button>
-                </td>
-            </tr>
-
-          
-
-   <div *ngIf="isProperty">
-     <app-mapping-properties (addProperties)=" newProperties($event)"></app-mapping-properties>
-   </div>                
- 
+              <tr> <textarea placeholder="Enter Template name" [(ngModel)]="name" rows="3" cols="50" ></textarea></tr>
+              <tr><b>Index Patterns :  </b> </tr>
+                <tr><textarea placeholder="Enter index Patterns" [(ngModel)]="index_patterns" rows="3" cols="50"></textarea></tr>
+                
+              
+                <tr><th><b><h4>Do Settings</h4></b></th></tr>
+                <tr> <b>No of shards :  </b> </tr>
+                <tr><input placeholder="Number of shard " [(ngModel)]="number_of_shards"  size="50px" /></tr>
+                <tr> <b>No of Replicas :  </b></tr> 
+                <tr><input placeholder="Number of shard " [(ngModel)]="number_of_shards" size="50px" /></tr>
+                
+                <tr> <b>auto Expand Replicas :  </b></tr> 
+                <tr><input placeholder="Number of shard " [(ngModel)]="number_of_shards"  size="50px"/> </tr>
+              
+                <tr><b>Format :  </b> </tr>
+                <tr><input placeholder="Number of shard " [(ngModel)]="number_of_shards" size="50px" /></tr>
+                <tr><b>Priority:  </b></tr> <tr><input placeholder="Number of shard " [(ngModel)]="number_of_shards" size="50px"/></tr>
+            
+                <tr> <b>Hidden:  </b> </tr>
+                <tr><input placeholder="Number of shard " [(ngModel)]="number_of_shards"  size="50px"/> </tr>
+                <tr><th><h4>Do Mappings</h4></th>
+                    <tr> <td> <button mat-button (click)="newMap()" mat-flat-button color="primary">Add Properties</button></td></tr>
+                    <tr>  <td><button mat-raised-button type="submit" (click)="createTemplate()">Save</button> </td>
+                    <td><button mat-raised-button type="submit" (click)="cancel()">Cancel</button></td></tr>
+              </table>
+           </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+              
+            <div *ngIf="isProperty">
+              <app-mapping-properties (addProperties)=" newProperties($event)"></app-mapping-properties>
+            </div>
+     </div>
+     </div>
