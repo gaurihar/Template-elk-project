@@ -32,7 +32,9 @@
             <li class="active"><a href="#">Home</a></li>
             <li><button (click)="allTemplate()">All-Template</button></li>
             <li><a href="#"></a></li>
-            <li><a href="create">Create New</a></li>
+            <li><button (click)="create()">Create</button></li>
+
+           
         </ul>
         </div>
       </div>
@@ -45,6 +47,9 @@
           <div *ngIf="isAllTemplate">
           <app-elk></app-elk>
             </div>
+            <div *ngIf="isCreate">
+              <app-create-template></app-create-template>
+                </div>
         </div>
     
     </div>
